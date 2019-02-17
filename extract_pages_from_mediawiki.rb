@@ -3,7 +3,7 @@ require_all '../dataspects/lib'
 require 'yaml'
 profiles = YAML.load_file('/home/lex/profiles.yml')
 
-label = 'localwiki0'
+label = 'teamfalnet'
 mw = Dataspects::MediaWiki.new(
   url: profiles[label]['url'],
   user: profiles[label]['user'],
@@ -11,7 +11,7 @@ mw = Dataspects::MediaWiki.new(
   log_in: :must_log_in
 )
 
-re = Dataspects::OntologyRepository.new("/home/lex/localwiki0_entities")
+re = Dataspects::OntologyRepository.new("/home/lex/teamfalnet_entities")
 re.create_new_at_URL
 mw.resources_from_CATEGORY("Entity") do |resource|
   re.store_RESOURCE(resource)

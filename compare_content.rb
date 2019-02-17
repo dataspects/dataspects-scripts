@@ -3,17 +3,21 @@ require_all '../dataspects/lib'
 require 'yaml'
 profiles = YAML.load_file('/home/lex/profiles.yml')
 
-label = 'cookbook.findandlearn.net'
+label = 'cookbook.findandlearn.net_roapi'
+label = 'teamfalnet'
+
+ontology = "ConferenceManagementOntology"
+
 mw = Dataspects::MediaWiki.new(
   url: profiles[label]['url'],
   user: profiles[label]['user'],
   password: profiles[label]['password'],
   log_in: :must_log_in
 )
-mw.resources_from_CATEGORY("dataspectsSystemCoreOntology")
+mw.resources_from_CATEGORY(ontology)
 
-re = OntologyRepository.new("../dataspectsSystemCoreOntology")
+re = Dataspects::OntologyRepository.new("../#{ontology}")
 re.use_existing_at_URL
 
-c = Comparer.new
+c = Dataspects::Comparer.new
 c.report(mw, re)
