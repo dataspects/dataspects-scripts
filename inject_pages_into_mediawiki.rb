@@ -14,7 +14,7 @@ mw = Dataspects::MediaWiki.new(
 re = Dataspects::OntologyRepository.new("../dataspectsSystemCoreOntology")
 re.use_existing_at_URL
 re.resources.each do |resource|
-  #mw.store_RESOURCE(resource, "Injection job 190215")
+  mw.store_RESOURCE(resource, "Injection job 190215")
 end
 
 re = Dataspects::OntologyRepository.new("../ConferenceManagementOntology")
@@ -26,5 +26,17 @@ end
 re = Dataspects::OntologyRepository.new("../MeetingMinutesOntology")
 re.use_existing_at_URL
 re.resources.each do |resource|
-  #mw.store_RESOURCE(resource, "Injection job 190215")
+  mw.store_RESOURCE(resource, "Injection job 190215")
+end
+
+re = Dataspects::OntologyRepository.new("../TaskManagementOntology")
+re.use_existing_at_URL
+re.resources.each do |resource|
+  mw.store_RESOURCE(resource, "Injection job 190215")
+end
+
+re = Dataspects::OntologyRepository.new("../teamfalnet_entities")
+re.use_existing_at_URL
+re.resources.each do |resource|
+  mw.store_RESOURCE(resource, "Injection job 190215")
 end
