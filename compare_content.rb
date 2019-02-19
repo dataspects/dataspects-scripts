@@ -3,8 +3,7 @@ require_all '../dataspects/lib'
 require 'yaml'
 profiles = YAML.load_file('/home/lex/profiles.yml')
 
-label = 'cookbook.findandlearn.net_roapi'
-label = 'teamfalnet'
+label = 'team.findandlearn.net'
 
 ontology = "ConferenceManagementOntology"
 
